@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Gloock&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Titan+One&display=swap');
+
+:root {
+    --Azaret-mono: 'Azeret Mono', monospace;
+    --poppins: 'Poppins', sans-serif;
+    --Gloock: 'Gloock', serif;
+    --Titan-one: 'Titan One', cursive;
+}
+
+
+mat-toolbar {
+    background-color: #000;
+}
+
+mat-toolbar mat-toolbar-row h1 {
+    color: #ccc;
+    font-family: 'Titan One', cursive;
+    text-transform: uppercase;
+}
+
+mat-toolbar mat-toolbar-row button mat-icon {
+    color: #ccc;
+}
+
+mat-toolbar mat-toolbar-row span {
+
+    background-color: #fff;
+}
+
+mat-toolbar mat-toolbar-row label {
+    color: #ccc;
+    font-family: 'Titan One', cursive;
+    font-weight: 400;
+}
+
+mat-sidenav-container {
+    background-image: url(../../../assets/PD.jpg);
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: cover;
+}
+
+mat-sidenav-container mat-sidenav {
+    background-color: #0f0101;
+}
+
+mat-sidenav-container mat-sidenav mat-nav-list mat-list-item div {
+    color: #ccc;
+}
+
+mat-sidenav-container mat-sidenav mat-nav-list mat-list-item mat-icon {
+    color: #024499;
+}
+
+
+mat-sidenav-container mat-sidenav mat-nav-list mat-list-item{
+    transition: background .5s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+    /* text-transform: uppercase; */
+    font-size: .9rem;
+}
+
+mat-sidenav-container  mat-sidenav mat-nav-list mat-list-item:hover{
+    background-color: #ddd;
+}
+
+ mat-sidenav-container mat-sidenav mat-nav-list mat-list-item:hover div {
+     color: #000;
+ }
