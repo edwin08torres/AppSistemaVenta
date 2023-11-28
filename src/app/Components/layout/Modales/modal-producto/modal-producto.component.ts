@@ -5,9 +5,12 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 import { Categoria } from 'src/app/Interfaces/categoria';
 import { Producto } from 'src/app/Interfaces/producto';
+import { Proveedor } from 'src/app/Interfaces/proveedor';
 import { CategoriaService } from 'src/app/Services/categoria.service';
+import { ProveedorService } from 'src/app/Services/proveedor.service';
 import { ProductoService } from 'src/app/Services/producto.service';
 import { UtilidadService } from 'src/app/Reutilizable/utilidad.service';
+
 
 @Component({
   selector: 'app-modal-producto',
@@ -19,7 +22,7 @@ export class ModalProductoComponent implements OnInit {
   tituloAccion:string = "Agregar";
   botonAccion:string = "Guardar";
   listaCategorias: Categoria[] = [];
-
+  listaProveedores: Proveedor[] = [];
 
   constructor(
     private modalActual: MatDialogRef<ModalProductoComponent>,
@@ -27,6 +30,7 @@ export class ModalProductoComponent implements OnInit {
     private fb: FormBuilder,
     private _categoriaServicio: CategoriaService,
     private _productoServicio: ProductoService,
+    private _proveedorServicio:ProveedorService,
     private _utilidadServicio: UtilidadService
   ) { 
 
@@ -34,6 +38,7 @@ export class ModalProductoComponent implements OnInit {
     this.formularioProducto = this.fb.group({
       nombre: ['',Validators.required],
       idCategoria: ['',Validators.required],
+      idproveedor: ['',Validators.required],
       stock: ['',Validators.required],
       precio: ['',Validators.required],
       esActivo: ['1',Validators.required]
@@ -53,14 +58,22 @@ export class ModalProductoComponent implements OnInit {
         error:(e) =>{}
   })
 
+   this._proveedorServicio.lista().subscribe({
+     next: (data) => {
+       if (data.status) this.listaProveedores = data.value;
+     },
+     error: (e) => {},
+   });
+
   }
 
   ngOnInit(): void {
     if(this.datosProducto != null){
       this.formularioProducto.patchValue({
-
         nombre: this.datosProducto.nombre,
         idCategoria: this.datosProducto.idCategoria,
+        idproveedor: this.datosProducto.idproveedor,
+        nombreProveedor: this.datosProducto.nombreProveedor,
         stock: this.datosProducto.stock,
         precio: this.datosProducto.precio,
         esActivo : this.datosProducto.esActivo.toString()
@@ -72,14 +85,17 @@ export class ModalProductoComponent implements OnInit {
   guardarEditar_Producto(){
 
     const _producto: Producto = {
-      idProducto : this.datosProducto == null ? 0 : this.datosProducto.idProducto,
-      nombre : this.formularioProducto.value.nombre,
+      idProducto:
+        this.datosProducto == null ? 0 : this.datosProducto.idProducto,
+      nombre: this.formularioProducto.value.nombre,
       idCategoria: this.formularioProducto.value.idCategoria,
-      descripcionCategoria: "",
-      precio  : this.formularioProducto.value.precio,
+      descripcionCategoria: '',
+      idproveedor: this.formularioProducto.value.idproveedor,
+      nombreProveedor: '',
+      precio: this.formularioProducto.value.precio,
       stock: this.formularioProducto.value.stock,
       esActivo: parseInt(this.formularioProducto.value.esActivo),
-    }
+    };
 
     console.log('cliente a editar', _producto);
 
