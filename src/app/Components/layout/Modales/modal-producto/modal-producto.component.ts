@@ -46,12 +46,12 @@ export class ModalProductoComponent implements OnInit {
     }
 
 
-  // this._categoriaServicio.lista().subscribe({
-  //       next: (data) => {
-  //         if(data.status) this.listaCategorias = data.value
-  //       },
-  //       error:(e) =>{}
-  // })
+  this._categoriaServicio.lista().subscribe({
+        next: (data) => {
+          if(data.status) this.listaCategorias = data.value
+        },
+        error:(e) =>{}
+  })
 
   }
 
