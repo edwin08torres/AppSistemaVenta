@@ -1,9 +1,9 @@
 export interface Cliente {
-    idCliente?:number,
+    idcliente:number,
     nombreCliente:string,
-    cedula?:string,
+    cedula:string,
     direccion:string,
     telefono:string,
     correo:string,
-    esActivo?:number
+    esActivo:number
 }

@@ -15,11 +15,11 @@ export class ProveedorService {
   constructor(private http: HttpClient) {}
 
   lista(): Observable<ResponseApi> {
-    return this.http.get<ResponseApi>(`${this.urlApi}Lista`);
+    return this.http.get<ResponseApi>(`${this.urlApi}Listar`);
   }
 
   guardar(request: Proveedor): Observable<ResponseApi> {
-    return this.http.post<ResponseApi>(`${this.urlApi}Guardar`, request);
+    return this.http.post<ResponseApi>(`${this.urlApi}Crear`, request);
   }
 
   editar(request: Proveedor): Observable<ResponseApi> {

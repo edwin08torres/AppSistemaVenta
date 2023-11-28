@@ -19,14 +19,14 @@ export class ClienteService {
   }
 
   guardar(request: Cliente): Observable<ResponseApi> {
-    return this.http.post<ResponseApi>(`${this.urlApi}Guardar`, request);
+    return this.http.post<ResponseApi>(`${this.urlApi}Crear`, request);
   }
 
   editar(request: Cliente): Observable<ResponseApi> {
-    return this.http.put<ResponseApi>(`${this.urlApi}Editar`, request); 
+    return this.http.put<ResponseApi>(`${this.urlApi}Editar`, request);
   }
 
-    eliminar(id: number): Observable<ResponseApi>{
-      return this.http.delete<ResponseApi>(`${this.urlApi}Eliminar/${id}`);
-    }
+  eliminar(id: number): Observable<ResponseApi> {
+    return this.http.delete<ResponseApi>(`${this.urlApi}Eliminar/${id}`);
+  }
 }

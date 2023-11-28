@@ -81,6 +81,8 @@ export class ModalProductoComponent implements OnInit {
       esActivo: parseInt(this.formularioProducto.value.esActivo),
     }
 
+    console.log('cliente a editar', _producto);
+
     if(this.datosProducto == null){
 
       this._productoServicio.guardar(_producto).subscribe({

@@ -1,8 +1,8 @@
 export interface Proveedor {
-    idProveedor?:number,
+    idproveedor:number,
     nombreProveedor:string,
     telefono:string,
     direccion:string,
     fechaRegistro?:string,
-    esActivo?:number
+    esActivo:number
 }
