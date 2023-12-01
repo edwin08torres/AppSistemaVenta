@@ -25,6 +25,18 @@
                 </mat-form-field>
             </mat-grid-tile>
 
+             <mat-grid-tile>
+                <mat-form-field appearance="outline">
+                    <mat-label>Proveedor</mat-label>
+                    <mat-select formControlName="idproveedor"> 
+                        <mat-option *ngFor="let item of listaProveedores" [value]="item.idproveedor">
+                            {{item.nombreProveedor}}
+                        </mat-option>
+                    </mat-select>
+
+                </mat-form-field>
+            </mat-grid-tile>
+
             <mat-grid-tile>
                 <mat-form-field appearance="outline">
                     <mat-label>Stock</mat-label>

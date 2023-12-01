@@ -1,0 +1,93 @@
+<h2 mat-dialog-title>{{ tituloAccion }} Cliente</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="formularioCliente">
+    <mat-grid-list cols="1" rowHeight="80px">
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre Cliente</mat-label>
+          <input
+            matInput
+            autocomplete="off"
+            formControlName="nombreCliente"
+            type="text"
+          />
+          <mat-icon matSuffix>fit_screen</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Cedula</mat-label>
+          <input
+            matInput
+            autocomplete="off"
+            formControlName="cedula"
+            type="text"
+          />
+          <mat-icon matSuffix>edit_square</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Direccion</mat-label>
+          <input
+            matInput
+            autocomplete="off"
+            formControlName="direccion"
+            type="text"
+          />
+          <mat-icon matSuffix>edit_square</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Telefono</mat-label>
+          <input
+            matInput
+            autocomplete="off"
+            formControlName="telefono"
+            type="text"
+          />
+          <mat-icon matSuffix>attach_money</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Correo</mat-label>
+          <input
+            matInput
+            autocomplete="off"
+            formControlName="correo"
+            type="text"
+          />
+          <mat-icon matSuffix>attach_money</mat-icon>
+        </mat-form-field>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Estado</mat-label>
+          <mat-select formControlName="esActivo">
+            <mat-option value="1">Activo</mat-option>
+            <mat-option value="0">No activo</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-raised-button mat-dialog-close color="warn">Volver</button>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="formularioCliente.invalid"
+    (click)="guardarEditar_Cliente()">
+    {{ botonAccion }}
+  </button>
+</mat-dialog-actions>

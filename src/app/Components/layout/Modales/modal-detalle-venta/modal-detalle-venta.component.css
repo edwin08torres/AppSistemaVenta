@@ -1,4 +1,11 @@
-table{
+table {
     width: 100%;
+}
+.td {
+    font-size: .85rem;
+}
 
+.cantidad {
+    text-align: center;
+    vertical-align: middle;
 }
