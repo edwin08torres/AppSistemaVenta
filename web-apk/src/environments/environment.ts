@@ -4,8 +4,7 @@
 
 export const environment = {
   production: false,
-  // endpoint: 'http://localhost:5062/api/',
-  endpoint: 'https://maycruz0910-001-site1.atempurl.com/api/',
+  endpoint: 'http://localhost:5062/api/',
 };
 
 /*
